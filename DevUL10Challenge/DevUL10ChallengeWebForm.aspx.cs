@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using ClassLibrary1;
 
 namespace DevUL10Challenge
 {
@@ -11,22 +7,18 @@ namespace DevUL10Challenge
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			Dart ourDart = new Dart();
-			ourDart.Throw();
-			resultLabel.Text += ourDart.dartValue.ToString(); 
+			//Dart ourDart = new Dart();
+			//ourDart.Throw();
+			//resultLabel.Text += ourDart.dartValue.ToString(); 
 		}
-			public class Dart
-			{
+		
 
-			public int dartValue { get; set; }
+		protected void okButton_Click(object sender, EventArgs e)
+		{
+			Game ourGame = new Game("Player1", "Player2");
+			string result = ourGame.Play();
+			resultLabel.Text = result;
 
-				Random randomDart = new Random();
-				public int Throw()
-				{
-					dartValue = randomDart.Next(20);
-					return dartValue;
-				}
-
-			}
+		}
 	}
 }
